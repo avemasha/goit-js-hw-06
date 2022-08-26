@@ -14,12 +14,57 @@ const images = [
 ];
 
 
-const createGalleryItem = ({ url, alt }) =>
-  `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
-const galleryMarkup = images.reduce(
-  (acc, item) => acc + createGalleryItem(item),
-  ""
-);
-const galleryList = document.querySelector("#gallery");
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
-galleryList.setAttribute("style", "list-style-type:none; display: flex;");
+// const createGalleryItem = ({ url, alt }) =>
+//   `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
+// // const galleryMarkup = images.reduce(
+//   (acc, item) => acc + createGalleryItem(item),
+//   ""
+// );
+// const galleryList = document.querySelector("#gallery");
+// galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+// galleryList.setAttribute("style", "list-style-type:none; display: flex;");
+
+
+// const galleryEl = document.querySelector('.gallery');
+// const makeGallery = images.map(image)
+
+
+
+// const list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+
+// // 
+
+// const imagesContainerEl = document.querySelector('.gallery');
+
+// const elements = images.map(image => {
+
+//   const imageEl = document.createElement('image')
+//   imageEl.type = "image";
+//   imageEl.classList.add('image');
+
+//   imageEl.setAttribute("alt", image.alt);
+//   imageEl.setAttribute('src', image.url);
+
+//   return imageEl;
+
+  
+  
+
+// })
+
+// console.log(elements)
+// imagesContainerEl.append(...elements);
+
+const ulEl = document.querySelector('.gallery');
+
+const list = images.forEach(el => {
+  ulEl.insertAdjacentHTML(
+    'afterbegin',
+    `<li><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100" /></li>`,
+  );
+
+});
+
+list.setAttribute("style", "list-style-type:none; display: flex;");
+
+
