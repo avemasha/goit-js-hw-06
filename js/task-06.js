@@ -1,22 +1,20 @@
+const textInput = document.querySelector('#validation-input')
 
-const inputVal = document.getElementById("validation-input");
-
-const totalLenght = inputVal.getAttribute("data-length");
+console.log(textInput.getAttribute('data-length'))
 
 
-inputVal.addEventListener("blur", chekupOnBlur);
+textInput.addEventListener('blur', validationChecker)
 
-function chekupOnBlur (event) {
-    if (inputVal.value.length !== totalLenght && inputVal.value.length !== 0) {
-    inputVal.classList.add("invalid");
-  }
- else if (inputVal.value.length === totalLenght) {
-    inputVal.classList.add("valid");
-    inputVal.classList.remove("invalid");
-  }
- else  {
-    inputVal.classList.remove("valid");
-    inputVal.classList.remove("invalid");
-  }
-
+ function validationChecker (event)  {
+	if (event.target.value.length == textInput.getAttribute('data-length')) {
+		textInput.classList.add('valid')
+		if (textInput.classList.contains('invalid')) {
+			textInput.classList.remove('invalid')
+		}
+	} else {
+		if (textInput.classList.contains('valid')) {
+			textInput.classList.remove('valid')
+		}
+		textInput.classList.add('invalid')
+	}
 }
