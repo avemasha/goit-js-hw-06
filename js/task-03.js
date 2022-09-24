@@ -14,16 +14,35 @@ const images = [
 ];
 
 
+
+
+// const list = images.forEach(el => {
+//   ulEl.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100" /></li>`,
+//   );
+
+// });
+
+const  makeImage = image => {
+  const { url, alt } = image;
+
+  return '<li><img src = "${url}" alt = "${alt}"  width = "150" height = "100" /></li>';
+
+
+};
+// makeImage.setAttribute("style", "list-style-type:none; display: flex;");
+
+console.log(makeImage);
 const ulEl = document.querySelector('.gallery');
+const makeGallery = images.map(makeImage).join('');
 
-const list = images.forEach(el => {
-  ulEl.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100" /></li>`,
-  );
+ulEl.insertAdjacentHTML("afterbegin", makeGallery);
 
-});
+console.log(makeGallery);
 
-list.setAttribute("style", "list-style-type:none; display: flex;");
+
+
+
 
 
