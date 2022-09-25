@@ -27,7 +27,7 @@ const images = [
 const  makeImage = image => {
   const { url, alt } = image;
 
-  return '<li class = "item" ><img src = "${url}" alt = "${alt}"  width = "150" height = "100" ></li>';
+  return `<li class='item'><img src = '${url}' alt = '${alt}' width = 900px></li>`
 
 
 };
@@ -36,6 +36,7 @@ const  makeImage = image => {
 console.log(makeImage);
 const ulEl = document.querySelector('.gallery');
 const makeGallery = images.map(makeImage).join('');
+ulEl.setAttribute("style", "list-style-type:none; display: flex;");
 
 
 ulEl.insertAdjacentHTML("afterbegin", makeGallery);
